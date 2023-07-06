@@ -24,6 +24,7 @@ import { PTORequest } from "../../../supabaseApi/types";
 import { chevronBack } from "ionicons/icons";
 import { Session } from "../../../supabaseApi/supabaseApi";
 import { dismissPlugin } from "../super-app";
+import { loggingPlugin } from "../LoggingPlugin";
 
 const HumanResourcesContractor: React.FC<{ session: Session }> = ({
   session,
@@ -43,6 +44,10 @@ const HumanResourcesContractor: React.FC<{ session: Session }> = ({
   ) => {
     await createPTORequest(session.user.id, startDate, endDate, type);
     await handleGetPTORequests();
+    const { success } = await loggingPlugin.trackActivity({
+      activityName: "Request PTO",
+    });
+    success && console.log("PTO request tracked successfully!");
   };
 
   const formatDate = (date: string) => {
