@@ -21,6 +21,7 @@ import { getPendingPTOApprovals } from "../../../supabaseApi/supabaseApi";
 import { PTOApproval } from "../../../supabaseApi/types";
 import { chevronBack } from "ionicons/icons";
 import { Session } from "../../../supabaseApi/supabaseApi";
+import { dismissPlugin } from "../super-app";
 
 interface HumanResourcesManagerProps {
   session: Session;
@@ -54,7 +55,11 @@ const HumanResourcesManager: React.FC<HumanResourcesManagerProps> = ({
       <IonHeader>
         <IonToolbar>
           <IonButtons>
-            <IonButton>
+            <IonButton
+              onClick={() => {
+                dismissPlugin.dismiss();
+              }}
+            >
               <IonIcon icon={chevronBack} />
               Dashboard
             </IonButton>
