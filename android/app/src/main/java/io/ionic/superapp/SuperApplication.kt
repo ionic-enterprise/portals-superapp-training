@@ -13,25 +13,5 @@ class SuperApplication : Application() {
 
         // Register Portals
         PortalManager.register("YOUR_PORTALS_KEY")
-
-        // Time Tracking Portal
-        PortalManager.newPortal("time")
-            .setStartDir("time-tracking")
-            .create()
-
-        // People Perks Portal
-        PortalManager.newPortal("perks")
-            .setStartDir("perks")
-            .create()
-
-        // CRM Portal
-        PortalManager.newPortal("crm")
-            .setStartDir("crm")
-            .create()
-
-        // Human Resources Portal
-        PortalManager.newPortal("hr")
-            .setStartDir("human-resources")
-            .create()
     }
 }

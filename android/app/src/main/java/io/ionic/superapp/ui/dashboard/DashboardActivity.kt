@@ -19,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import io.ionic.portals.PortalManager
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -81,7 +82,12 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(1400L)
+            val apps = DataManager.instance.getApps()
+            for (app in apps) {
+                PortalManager.newPortal(app.id).create()
+            }
+
+            delay(800L)
             dashboardViewModel.update()
         }
     }
