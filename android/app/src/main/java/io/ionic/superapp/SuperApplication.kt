@@ -28,5 +28,10 @@ class SuperApplication : Application() {
         PortalManager.newPortal("crm")
             .setStartDir("crm")
             .create()
+
+        // Human Resources Portal
+        PortalManager.newPortal("hr")
+            .setStartDir("human-resources")
+            .create()
     }
 }

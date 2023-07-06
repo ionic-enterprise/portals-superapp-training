@@ -76,6 +76,13 @@ task CopyTimeWebAssets(type: Copy) {
     into layout.projectDirectory.dir("src/main/assets/time-tracking")
 }
 
+task CopyHRWebAssets(type: Copy) {
+    def webBuildFolder = '../../web/human-resources/dist'
+    from webBuildFolder
+    into layout.projectDirectory.dir("src/main/assets/human-resources")
+}
+
 preBuild.dependsOn(CopyPerksWebAssets)
 preBuild.dependsOn(CopyCRMWebAssets)
 preBuild.dependsOn(CopyTimeWebAssets)
+preBuild.dependsOn(CopyHRWebAssets)
