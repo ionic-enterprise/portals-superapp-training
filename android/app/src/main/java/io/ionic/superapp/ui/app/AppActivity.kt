@@ -9,6 +9,7 @@ import io.ionic.portals.PortalFragment
 import io.ionic.portals.PortalManager
 import io.ionic.superapp.R
 import io.ionic.superapp.data.DataManager
+import io.ionic.superapp.ui.plugins.DismissPlugin
 import org.json.JSONObject
 
 class AppActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class AppActivity : AppCompatActivity() {
             val portal: Portal = PortalManager.getPortal(portalName)
             val portalFragment = PortalFragment(portal)
 
+            portal.addPluginInstance(DismissPlugin { finish() })
 
             val initialContext = JSONObject()
             initialContext.put("supabase", DataManager.instance.getSessionObject())
