@@ -46,7 +46,7 @@ preBuild.dependsOn(CopyHumanResourcesWebAssets)
 
 The super app now contains the build files for the Human Resources mini app. However, we do not have a Portal that will load it. We will register a new Portal to load the Human Resources mini app. 
 
-Add the following code after Line 30 in `./anrdoid/app/src/main/java/io/ionic/superapp/SuperApplication.kt`:
+Add the following code after Line 30 in `./android/app/src/main/java/io/ionic/superapp/SuperApplication.kt`:
 
 ```kotlin
 // Human Resources Portal
